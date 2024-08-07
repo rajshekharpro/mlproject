@@ -1,8 +1,6 @@
 import logging
-import sys
 import os
 from datetime import datetime
-import exception
 
 LOG_FILE=f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 logs_path=os.path.join(os.getcwd(),"logs",LOG_FILE)
@@ -18,9 +16,3 @@ logging.basicConfig(
 
 )
 
-# if __name__ == "__main__":
-#     try:
-#         a = 1/0
-#     except Exception as e:
-#         logging.info("Divide by zero")
-#         raise exception.CustomException(e, sys)
