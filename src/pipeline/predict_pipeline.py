@@ -2,16 +2,23 @@ import sys
 import pandas as pd
 from src.exception import CustomException
 from src.utils import load_object
-sys.path.append('')
+import os
 
+# dirname = os.path.dirname(__file__)
+# model_path = os.path.join(dirname,"../..","artifacts","model.pkl")
+# preprocessor_path=os.path.join(dirname,"../..","artifacts","preprocessor.pkl")
+# print(model_path)
+# print(preprocessor_path)
 class PredictPipeline:
     def __init__(self):
         pass
 
     def predict(self,features):
         try:
-            model_path='C:/projects/mlproject/artifacts/model.pkl'
-            preprocessor_path='C:/projects/mlproject/artifacts/proprocessor.pkl'
+            
+            dirname = os.path.dirname(__file__)
+            model_path = os.path.join(dirname,"../..","artifacts","model.pkl")
+            preprocessor_path=os.path.join(dirname,"../..","artifacts","preprocessor.pkl")
             model=load_object(file_path=model_path)
             preprocessor=load_object(file_path=preprocessor_path)
             data_scaled=preprocessor.transform(features)
